@@ -105,9 +105,12 @@ if(currentCard.innerHTML === previousCard.innerHTML) {
 
 } else {
 
+    currentCard.classList.add("nomatch");
+    previousCard.classList.add("nomatch");
+
     setTimeout(function() {
-            currentCard.classList.remove("open", "show", "dismiss");
-            previousCard.classList.remove("open", "show", "dismiss");
+            currentCard.classList.remove("open", "show", "nomatch", "dismiss");
+            previousCard.classList.remove("open", "show", "nomatch", "dismiss");
             openedCards = [];
     }, 1100);
 }
