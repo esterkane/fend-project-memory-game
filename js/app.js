@@ -1,7 +1,14 @@
 /*
  * Create a list that holds all of your cards
  */
+const cards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o",
+    "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube",
+    "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb","fa fa-bomb"]
 
+const cardContainer = document.querySelector(".deck");
+
+let openedCards = [];
+let matchedCards = [];
 
 /*
  * Display the cards on the page
@@ -25,7 +32,6 @@ function shuffle(array) {
     return array;
 }
 
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -36,3 +42,146 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+/*
+* Initialize the game
+*/
+function init() {
+    cardList = shuffle(cards);
+for (let i = 0; i < cardList.length; i++) {
+    const card = document.createElement("li");
+    card.classList.add("card");
+    card.innerHTML = `<i class="${cardList[i]}"</i>`;
+    cardContainer.appendChild(card);
+
+    // Add click event to each card
+    click(card);
+    }
+}
+
+
+/*
+* Create card click event
+*/
+function click(card) {
+    card.addEventListener("click", function() {
+
+        const currentCard = this;
+        const previousCard = openedCards[0];
+    
+        //If there is existing opened card
+        if(openedCards.length === 1){
+    
+            card.classList.add("open", "show", "dismiss");
+            openedCards.push(this);
+    
+            //Compare two opened cards
+            compare(currentCard, previousCard);
+    
+        } else {
+    
+            card.classList.add("open", "show", "dismiss");
+            openedCards.push(this);
+    
+        }
+    });
+}
+
+/*
+/ Compare the cards
+*/
+
+function compare(currentCard, previousCard) {
+if(currentCard.innerHTML === previousCard.innerHTML) {
+                    
+    currentCard.classList.add("match");
+    previousCard.classList.add("match");
+
+    matchedCards.push(currentCard, previousCard);
+
+    openedCards = [];
+
+    isOver();
+
+} else {
+
+    setTimeout(function() {
+            currentCard.classList.remove("open", "show", "dismiss");
+            previousCard.classList.remove("open", "show", "dismiss");
+            openedCards = [];
+    }, 1100);
+}
+    addMove();
+}
+
+/*
+* Check if the game is over!
+*/
+
+function isOver () {
+    if(matchedCards.length === cardList.length){
+        setTimeout(function() { alert("GAME OVER!");}, 150);
+    }
+}
+
+/*
+* Add a move
+*/
+const movesContainer = document.querySelector(".moves");
+let moves = 0;
+movesContainer.innerHTML = 0;
+function addMove() {
+    moves++;
+    movesContainer.innerHTML = moves;
+
+    // Set the raiting
+    raiting();
+}
+
+/*
+* Rating
+*/
+const starsContainer = document.querySelector(".stars");
+function raiting() {
+    switch(moves) {
+        case 10:
+            starsContainer.innerHTML = starsContainer.innerHTML =`<li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>`;
+            break;
+
+        case 13:
+        starsContainer.innerHTML =`<li><i class="fa fa-star"></i></li>`;
+        break;
+
+        case 15:
+        starsContainer.innerHTML =``;
+        break;
+    }
+}
+
+/*
+* Restart the game
+*/
+const restartButton = document.querySelector(".restart");
+restartButton.addEventListener("click", function() {
+    // Delete all cards
+    cardContainer.innerHTML ="";
+
+    // Call 'init' to create new cards
+    init();
+    /*shuffle(cardList);*/
+
+    // Reset any related variables
+    matchedCards = [];
+    moves = 0;
+    movesContainer.innerHTML = moves;
+    starsContainer.innerHTML =`<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+});
+
+/* 
+* Start the game for the first time
+*/
+
+init();
+
+
