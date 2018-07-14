@@ -1,5 +1,5 @@
 /*
- * Create a list that holds all of your cards
+ * Create a list that holds all of cards
  */
 const cards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o",
     "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube",
@@ -11,6 +11,11 @@ let openedCards = [];
 let matchedCards = [];
 
 let star = `<li><i class="fa fa-star"></i></li>`;
+
+let initialClick = true;
+
+let endTime = 0;
+
 
 /*
  * Display the cards on the page
@@ -61,6 +66,15 @@ for (let i = 0; i < cardList.length; i++) {
     }
 }
 
+/*
+* Timer
+*/
+var timer = new Timer();
+timer.start();
+timer.addEventListener('secondsUpdated', function (e) {
+    $('#basicUsage').html(timer.getTimeValues().toString());
+});
+
 
 /*
 * Create card click event
@@ -71,6 +85,11 @@ function click(card) {
         const currentCard = this;
         const previousCard = openedCards[0];
         
+        if (initialClick){
+            timer.start();
+            initialClick = false;
+        }
+
         if(openedCards.length < 2 ){
         //If there is existing opened card
             if(openedCards.length === 1){
@@ -121,8 +140,6 @@ if (currentCard.innerHTML === previousCard.innerHTML) {
 }
     addMove();
 }
-
-
 
 
 /*
@@ -185,7 +202,10 @@ restartButton.addEventListener("click", function() {
     matchedCards = [];
     moves = 0;
     movesContainer.innerHTML = moves;
-    starsContainer.innerHTML =`<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+    starsContainer.innerHTML =`${star} ${star} ${star}`;
+    timer.stop();
+    $('#basicUsage').html("00:00:00");
+    initialClick = true;
 });
 
 /* 
