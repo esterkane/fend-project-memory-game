@@ -232,3 +232,13 @@ transform: scale3d(1, 1, 1);
     float: right;
     cursor: pointer;
 }
+
+/*
+ * Styles for the Score Popup
+ */
+
+
+#score
+{
+    display: none;
+}

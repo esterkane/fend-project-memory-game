@@ -70,7 +70,6 @@ for (let i = 0; i < cardList.length; i++) {
 * Timer
 */
 var timer = new Timer();
-timer.start();
 timer.addEventListener('secondsUpdated', function (e) {
     $('#basicUsage').html(timer.getTimeValues().toString());
 });
@@ -148,7 +147,7 @@ if (currentCard.innerHTML === previousCard.innerHTML) {
 
 function isOver () {
     if(matchedCards.length === cardList.length){
-        setTimeout(function() { alert("GAME OVER!");}, 150);
+        gameOver();
     }
 }
 
@@ -207,6 +206,15 @@ restartButton.addEventListener("click", function() {
     $('#basicUsage').html("00:00:00");
     initialClick = true;
 });
+
+/*
+* Game over popup
+*/
+
+function gameOverMessage() {
+
+}
+
 
 /* 
 * Start the game for the first time
