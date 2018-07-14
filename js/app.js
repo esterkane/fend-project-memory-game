@@ -10,6 +10,8 @@ const cardContainer = document.querySelector(".deck");
 let openedCards = [];
 let matchedCards = [];
 
+let star = `<li><i class="fa fa-star"></i></li>`;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -89,7 +91,6 @@ function click(card) {
 }
 
 
-
 /*
 / Compare the cards
 */
@@ -154,16 +155,15 @@ function addMove() {
 const starsContainer = document.querySelector(".stars");
 function raiting() {
     switch(moves) {
-        case 10:
-            starsContainer.innerHTML = starsContainer.innerHTML =`<li><i class="fa fa-star"></i></li>
-            <li><i class="fa fa-star"></i></li>`;
+        case 15:
+            starsContainer.innerHTML =`${star} ${star}`;
             break;
 
-        case 13:
-        starsContainer.innerHTML =`<li><i class="fa fa-star"></i></li>`;
+        case 20:
+        starsContainer.innerHTML =`${star}`;
         break;
 
-        case 15:
+        case 25:
         starsContainer.innerHTML =``;
         break;
     }
