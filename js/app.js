@@ -68,39 +68,35 @@ function click(card) {
 
         const currentCard = this;
         const previousCard = openedCards[0];
-    
+        
+        if(openedCards.length < 2 ){
         //If there is existing opened card
-        if(openedCards.length === 1){
+            if(openedCards.length === 1){
     
             card.classList.add("open", "show", "dismiss");
             openedCards.push(this);
-    
+            
             //Compare two opened cards
             compare(currentCard, previousCard);
-    
-        } else {
+            } else {
     
             card.classList.add("open", "show", "dismiss");
             openedCards.push(this);
     
+            }
         }
     });
 }
 
 
-/* Return true if the item is already opened and false if not*/
-
-function isSameCard(item) {
-    const isSame = (item.className === `card open show`) ? true : false;
-    return isSame;
-}
 
 /*
 / Compare the cards
 */
 
+
 function compare(currentCard, previousCard) {
-if(currentCard.innerHTML === previousCard.innerHTML) {
+if (currentCard.innerHTML === previousCard.innerHTML) {
                     
     currentCard.classList.add("match", "bounce");
     previousCard.classList.add("match", "bounce");
@@ -124,6 +120,8 @@ if(currentCard.innerHTML === previousCard.innerHTML) {
 }
     addMove();
 }
+
+
 
 
 /*

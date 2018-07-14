@@ -126,7 +126,7 @@ transform: translate3d(10px, 0, 0);
 }
 }
 
-/* boounceIn keyframes-animation from https://daneden.github.io/animate.css/ */
+/* bounceIn keyframes-animation from https://daneden.github.io/animate.css/ */
 
 .deck .card.bounce {
 -webkit-animation-name: bounceIn;
