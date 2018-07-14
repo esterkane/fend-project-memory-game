@@ -87,6 +87,14 @@ function click(card) {
     });
 }
 
+
+/* Return true if the item is already opened and false if not*/
+
+function isSameCard(item) {
+    const isSame = (item.className === `card open show`) ? true : false;
+    return isSame;
+}
+
 /*
 / Compare the cards
 */
@@ -94,8 +102,8 @@ function click(card) {
 function compare(currentCard, previousCard) {
 if(currentCard.innerHTML === previousCard.innerHTML) {
                     
-    currentCard.classList.add("match");
-    previousCard.classList.add("match");
+    currentCard.classList.add("match", "bounce");
+    previousCard.classList.add("match", "bounce");
 
     matchedCards.push(currentCard, previousCard);
 
@@ -112,10 +120,11 @@ if(currentCard.innerHTML === previousCard.innerHTML) {
             currentCard.classList.remove("open", "show", "nomatch", "dismiss");
             previousCard.classList.remove("open", "show", "nomatch", "dismiss");
             openedCards = [];
-    }, 1100);
+    }, 500);
 }
     addMove();
 }
+
 
 /*
 * Check if the game is over!
