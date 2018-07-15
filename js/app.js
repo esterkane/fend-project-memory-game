@@ -6,6 +6,9 @@ const cards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-p
     "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb","fa fa-bomb"]
 
 const cardContainer = document.querySelector(".deck");
+const restartButton = document.querySelector(".restart");
+const restartButtonModal = document.querySelector(".restart-game");
+const modal = document.querySelector(".modal");
 
 let openedCards = [];
 let matchedCards = [];
@@ -195,28 +198,42 @@ function raiting() {
 /*
 * Restart the game
 */
-const restartButton = document.querySelector(".restart");
 restartButton.addEventListener("click", function() {
-    // Delete all cards
-    cardContainer.innerHTML ="";
 
-    // Call 'init' to create new cards
-    init();
+     restart();
 
-    // Reset any related variables
-    matchedCards = [];
-    moves = 0;
-    movesContainer.innerHTML = moves;
-    starsContainer.innerHTML =`${star} ${star} ${star}`;
-    
-    timer.stop();
-
-    $('#show-timer').html("00:00:00");
-    initialClick = true;
 });
 
+restartButtonModal.addEventListener("click", function() {
+    
+    modal.classList.add("hide");
+    restart();
+
+});
+
+
+
+function resetBoard() {
+       // Delete all cards
+       cardContainer.innerHTML ="";
+
+        // Call 'init' to create new cards
+        init();
+    
+        // Reset any related variables
+        matchedCards = [];
+        moves = 0;
+        movesContainer.innerHTML = moves;
+        starsContainer.innerHTML =`${star} ${star} ${star}`;
+        
+        timer.stop();
+    
+        $('#show-timer').html("00:00:00");
+        initialClick = true;
+}
+
 /*
-* Game over popup
+* Game Over popup
 */
 function gameOver() {
 
@@ -232,6 +249,14 @@ function gameOver() {
     const endStars = document.querySelector("#score-stars");
     endStars.innerHTML = stars;
     
+}
+
+/*
+* Restart the game
+*/
+function restart() {
+
+    resetBoard();
 }
 
 
