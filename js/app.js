@@ -11,6 +11,7 @@ let openedCards = [];
 let matchedCards = [];
 
 let star = `<li><i class="fa fa-star"></i></li>`;
+let stars = ``;
 
 let initialClick = true;
 
@@ -71,7 +72,8 @@ for (let i = 0; i < cardList.length; i++) {
 */
 var timer = new Timer();
 timer.addEventListener('secondsUpdated', function (e) {
-    $('#basicUsage').html(timer.getTimeValues().toString());
+    $('#show-timer').html(timer.getTimeValues().toString());
+    $('#score-time').html(timer.getTimeValues().toString());
 });
 
 
@@ -87,6 +89,7 @@ function click(card) {
         if (initialClick){
             timer.start();
             initialClick = false;
+
         }
 
         if(openedCards.length < 2 ){
@@ -147,6 +150,7 @@ if (currentCard.innerHTML === previousCard.innerHTML) {
 
 function isOver () {
     if(matchedCards.length === cardList.length){
+        timer.pause();
         gameOver();
     }
 }
@@ -172,15 +176,18 @@ const starsContainer = document.querySelector(".stars");
 function raiting() {
     switch(moves) {
         case 15:
-            starsContainer.innerHTML =`${star} ${star}`;
-            break;
+        starsContainer.innerHTML =`${star} ${star}` ;
+        stars = starsContainer.innerHTML;
+        break;
 
         case 20:
         starsContainer.innerHTML =`${star}`;
+        stars = starsContainer.innerHTML;
         break;
 
         case 25:
         starsContainer.innerHTML =``;
+        stars = starsContainer.innerHTML;
         break;
     }
 }
@@ -195,24 +202,36 @@ restartButton.addEventListener("click", function() {
 
     // Call 'init' to create new cards
     init();
-    /*shuffle(cardList);*/
 
     // Reset any related variables
     matchedCards = [];
     moves = 0;
     movesContainer.innerHTML = moves;
     starsContainer.innerHTML =`${star} ${star} ${star}`;
+    
     timer.stop();
-    $('#basicUsage').html("00:00:00");
+
+    $('#show-timer').html("00:00:00");
     initialClick = true;
 });
 
 /*
 * Game over popup
 */
+function gameOver() {
 
-function gameOverMessage() {
+    const popup = document.querySelector(".hide");
+    popup.classList.remove("hide");
 
+    timer.pause();
+    const endMoves = document.querySelector("#score-moves");
+    endMoves.innerHTML = moves + 1;
+
+    $('#score-time').html(timer.getTimeValues().toString());
+
+    const endStars = document.querySelector("#score-stars");
+    endStars.innerHTML = stars;
+    
 }
 
 

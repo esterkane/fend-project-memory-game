@@ -24,7 +24,7 @@
 
             <span class="moves"></span> Moves
             
-            <span class="timer" id="basicUsage">00:00:00</span>
+            <span class="timer" id="show-timer">00:00:00</span>
            
             <div class="restart">
         		<i class="fa fa-repeat"></i>
@@ -35,7 +35,20 @@
         </ul>
     </div>
 
-    <div class="container" id="score"></div>
+    <div class="modal hide" id="score">
+        <div class="content">
+        <h2>Congrats!!!</h2>
+        <div class="modal-header"><strong>Your score:</strong></div>
+        <div class="modal-body">
+            <p><strong>Moves: </strong><span id="score-moves"></span></p>
+            <p><strong>Time: </strong><span id="score-time">0</span></p>
+            <p><strong>Rating: </strong><span id="score-stars"></span></p>
+        </div>
+        <div class="modal-footer">
+            <button class="restart-game"><strong>Play again?</strong></button>
+        </div>
+        </div>
+    </div>
 
     <script type="text/javascript" src="js/jquery.js"></script>
     <script src="js/easytimer.min.js"></script>
