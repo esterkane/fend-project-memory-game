@@ -1,20 +1,23 @@
-# Memory Game Project
+# FEND - Memory Game Project
 
-## Table of Contents
+## Description
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+This is a browser-based card matching game (also known as Concentration, Match Match, Match Up, or simply Pairs).
 
-## Instructions
+You can try it out [online](https://esterkane.github.io/fend-project-memory-game/),
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+or on your local mashine by:
 
-To get started, open `js/app.js` and start building out the app's functionality
+downloading the zip file or cloning the github repository and openning the index.html in you browser
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
 
-## Contributing
+## How to play 
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+All the cards are laid face down at the begining of the game. The goal is to find all pairs on the board by flipping two cards on each turn as fast and with as few moves (turns) as possible. Once two cards on the board are matched, they will stay visible (flipped) untilthe end of te game.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Dependencies
+
+jquery
+easytimer.js
+google fonts
+font awesome
