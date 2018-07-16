@@ -17,7 +17,7 @@ All the cards are laid face down at the begining of the game. The goal is to fin
 
 ## Dependencies
 
-jquery
-easytimer.js
-google fonts
+jquery,
+easytimer.js,
+google fonts,
 font awesome
