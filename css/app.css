@@ -1,4 +1,4 @@
-html {
+    html {
     box-sizing: border-box;
 }
 
@@ -17,7 +17,8 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/geometry2.png');
+    /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
@@ -32,6 +33,7 @@ h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
 }
+
 
 /*
  * Styles for the deck of cards
@@ -78,131 +80,161 @@ h1 {
 .deck .card.match {
     cursor: default;
     background: #02ccba;
-    font-size: 33px; 
+    font-size: 33px;
 }
 
 .deck .card.dismiss {
     pointer-events: none;
 }
 
+
 /* shake keyframess-animation from https://daneden.github.io/animate.css/ */
 
 .deck .card.nomatch {
--webkit-animation-name: shake;
-animation-name: shake;
--webkit-animation-duration: 0.75s;
-animation-duration: 0.75s;
--webkit-animation-fill-mode: both;
-animation-fill-mode: both
+    -webkit-animation-name: shake;
+    animation-name: shake;
+    -webkit-animation-duration: 0.75s;
+    animation-duration: 0.75s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
 }
-
 
 @-webkit-keyframes shake {
-0%, 100% {
--webkit-transform: translate3d(0, 0, 0);
-transform: translate3d(0, 0, 0);
+    0%,
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
 }
-10%, 30%, 50%, 70%, 90% {
--webkit-transform: translate3d(-10px, 0, 0);
-transform: translate3d(-10px, 0, 0);
-}
-20%, 40%, 60%, 80% {
--webkit-transform: translate3d(10px, 0, 0);
-transform: translate3d(10px, 0, 0);
-}
-}
+
 @keyframes shake {
-0%, 100% {
--webkit-transform: translate3d(0, 0, 0);
-transform: translate3d(0, 0, 0);
+    0%,
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
 }
-10%, 30%, 50%, 70%, 90% {
--webkit-transform: translate3d(-10px, 0, 0);
-transform: translate3d(-10px, 0, 0);
-}
-20%, 40%, 60%, 80% {
--webkit-transform: translate3d(10px, 0, 0);
-transform: translate3d(10px, 0, 0);
-}
-}
+
 
 /* bounceIn keyframes-animation from https://daneden.github.io/animate.css/ */
 
 .deck .card.bounce {
--webkit-animation-name: bounceIn;
-animation-name: bounceIn;
--webkit-animation-duration: .75s;
-animation-duration: .75s;
--webkit-animation-duration: 1s;
-animation-duration: 1s;
--webkit-animation-fill-mode: both;
-animation-fill-mode: both;
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn;
+    -webkit-animation-duration: .75s;
+    animation-duration: .75s;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
+
 @-webkit-keyframes bounceIn {
-0%, 20%, 40%, 60%, 80%, 100% {
--webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
 }
-0% {
-opacity: 0;
--webkit-transform: scale3d(.3, .3, .3);
-transform: scale3d(.3, .3, .3);
-}
-20% {
--webkit-transform: scale3d(1.1, 1.1, 1.1);
-transform: scale3d(1.1, 1.1, 1.1);
-}
-40% {
--webkit-transform: scale3d(.9, .9, .9);
-transform: scale3d(.9, .9, .9);
-}
-60% {
-opacity: 1;
--webkit-transform: scale3d(1.03, 1.03, 1.03);
-transform: scale3d(1.03, 1.03, 1.03);
-}
-80% {
--webkit-transform: scale3d(.97, .97, .97);
-transform: scale3d(.97, .97, .97);
-}
-100% {
-opacity: 1;
--webkit-transform: scale3d(1, 1, 1);
-transform: scale3d(1, 1, 1);
-}
-}
+
 @keyframes bounceIn {
-0%, 20%, 40%, 60%, 80%, 100% {
--webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-}
-0% {
-opacity: 0;
--webkit-transform: scale3d(.3, .3, .3);
-transform: scale3d(.3, .3, .3);
-}
-20% {
--webkit-transform: scale3d(1.1, 1.1, 1.1);
-transform: scale3d(1.1, 1.1, 1.1);
-}
-40% {
--webkit-transform: scale3d(.9, .9, .9);
-transform: scale3d(.9, .9, .9);
-}
-60% {
-opacity: 1;
--webkit-transform: scale3d(1.03, 1.03, 1.03);
-transform: scale3d(1.03, 1.03, 1.03);
-}
-80% {
--webkit-transform: scale3d(.97, .97, .97);
-transform: scale3d(.97, .97, .97);
-}
-100% {
-opacity: 1;
--webkit-transform: scale3d(1, 1, 1);
-transform: scale3d(1, 1, 1);
-}
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+        transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+        transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
 }
 
 
@@ -233,36 +265,38 @@ transform: scale3d(1, 1, 1);
     cursor: pointer;
 }
 
+.timer {
+    margin: 30px;
+}
+
 /*
  * Styles for the Score Popup
  */
 
-
-.hide
-{
+.hide {
     display: none;
 }
 
-.modal {   
+.modal {
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
+
 .content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; 
+    width: 80%;
     text-align: center;
 }
-
 
 .modal-header {
     padding: 2px 16px;
@@ -270,7 +304,9 @@ transform: scale3d(1, 1, 1);
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+    padding: 2px 16px;
+}
 
 .modal-footer {
     padding: 2px 16px;
@@ -278,49 +314,42 @@ transform: scale3d(1, 1, 1);
     color: white;
 }
 
-#score-stars{
+#score-stars {
     list-style: none;
     display: inline;
 }
 
+
 /* Responsiveness - Media queries */
 
 @media screen and (max-width: 760px) {
-  .container {
-      width: 70%;
-      display: block;
-      margin: auto;
-      box-sizing: border-box;
-  }
-
-  h1 {
-      font-size: 1.5rem;
-      text-align: center;
-  }
-
-  .container .deck {
-      width: 300px;
-      min-height: 100px;
-      margin: auto;
-      padding: 10px;
-  }
-
-  .deck .card {
-      width: 50px;
-      height: 50px;
-      margin: 5px 10px;
-  }
-
-  .deck .card.show {
-      font-size: 2rem;
-  }
-
-  .container .score-panel {
-      font-size: 1rem;
-      width: 75%;
-      margin: 10% 10%;
-      text-align: center;
-  }
-
-
-
+    .container {
+        width: 70%;
+        display: block;
+        margin: auto;
+        box-sizing: border-box;
+    }
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .container .deck {
+        width: 300px;
+        min-height: 100px;
+        margin: auto;
+        padding: 10px;
+    }
+    .deck .card {
+        width: 50px;
+        height: 50px;
+        margin: 5px 10px;
+    }
+    .deck .card.show {
+        font-size: 2rem;
+    }
+    .container .score-panel {
+        font-size: 1rem;
+        width: 75%;
+        margin: 10% 10%;
+        text-align: center;
+    }
